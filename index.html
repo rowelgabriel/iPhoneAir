@@ -8,6 +8,15 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <style>
+    body {
+      background-color: black;
+    }
+
+    .transparent-navbar {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+    }
+
     .nav-link,
     h2,
     p {
@@ -19,11 +28,65 @@
       object-fit: contain;
       width: 100%;
     }
+
+    /* carousel button */
+    #galleryCarousel .carousel-control-prev,
+    #galleryCarousel .carousel-control-next {
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    #galleryCarousel:hover .carousel-control-prev,
+    #galleryCarousel:hover .carousel-control-next {
+      opacity: 1;
+    }
+
+    .carousel-img {
+      width: 100%;
+      padding: 15px;
+      object-fit: contain;
+      max-height: 400px;
+    }
+
+    /* text responsiveness */
+    @media (max-width: 1200px) {
+      #text {
+        font-size: 1.1rem !important;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      /* carousel image */
+      .carousel-img {
+        max-height: 300px;
+      }
+
+      /* carousel padding */
+      .carousel-item {
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+      }
+    }
+
+
+    @media (max-width: 768px) {
+
+      #text,
+      .nav-item {
+        font-size: 0.9rem !important;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 
-<body style="background-color:black;">
-  <nav class="navbar navbar-expand-sm navbar-dark bg-dark my-3 mx-5 py-3 px-2 rounded-4">
+<body>
+  <nav class="navbar navbar-expand-sm fixed-top mx-5 mt-3 py-2 px-4 rounded-4 transparent-navbar">
     <div class="container-fluid">
       <a class="navbar-brand" style="color:white;">iPhone Air</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -33,7 +96,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#overview">Overview</a>
+            <a class="nav-link" aria-current="page" href="#overview">Overview</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#gallery">Gallery</a>
@@ -50,7 +113,7 @@
   <section id="overview" class="text-center">
     <div class="container-fluid mb-5">
       <img src="images/air.png" alt="iPhone Air Overview" class="img-fluid">
-      <p class="px-5" style="text-align:justify; font-size: 1.2rem">
+      <p class="px-5" id="text" style="text-align:justify; font-size: 1.2rem">
         The iPhone 17 introduces a sleek new design with a 6.3-inch Super Retina XDR OLED display that supports
         ProMotion up to 120 Hz and an Always-On feature. It runs on the powerful A19 chip, offering faster performance
         and improved efficiency. The phone includes dual 48-megapixel rear cameras and an 18-megapixel front camera,
@@ -62,27 +125,22 @@
 
   <!-- Gallery Section -->
   <section id="gallery">
-
     <div class="container-fluid text-center px-5">
-      <h2>
-        The thinnest iPhone ever made.
-      </h2>
-
+      <h2>The thinnest iPhone ever made.</h2>
       <img src="images/thin.png" alt="thin" class="img-fluid styled-img">
-      <p class="mt-2 mb-4" style="text-align:justify; font-size: 1.2rem">
+      <p class="mt-2 mb-4" id="text" style="text-align:justify; font-size: 1.2rem">
         The iPhone Air’s ultra-thin design makes it incredibly lightweight and comfortable to carry anywhere. Despite
         its slim build, it delivers impressive performance and a premium feel that enhances everyday use.
       </p>
 
       <div class="container-fluid mb-5">
-        <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div id="galleryCarousel" class="carousel slide" data-bs-ride="false">
           <div class="carousel-inner">
 
             <div class="carousel-item active px-5">
               <div class="row align-items-center">
                 <div class="col-7">
-                  <img src="images/air1.png" alt="colors"
-                    style="width: 100%; height: 400px; padding: 15px; object-fit: contain;">
+                  <img src="images/air1.png" alt="colors" class="carousel-img">
                 </div>
                 <div class="col-5 d-flex" style="text-align:left;">
                   <h2>
@@ -95,14 +153,13 @@
             <div class="carousel-item px-5">
               <div class="row align-items-center px-1">
                 <div class="col-6">
-                  <img src="images/white.png" alt="white"
-                    style="width: 100%; height: 400px; padding: 15px; object-fit: contain;">
+                  <img src="images/white.png" alt="white" class="carousel-img">
                 </div>
                 <div class="col-6 d-flex flex-column" style="text-align:justify;">
                   <h2>
                     Cloud White
                   </h2>
-                  <p>Clean and minimalist, ideal for a simple yet elegant appearance.</p>
+                  <p id="text">Clean and minimalist, ideal for a simple yet elegant appearance.</p>
                 </div>
               </div>
             </div>
@@ -110,14 +167,13 @@
             <div class="carousel-item px-5">
               <div class="row align-items-center px-1">
                 <div class="col-6">
-                  <img src="images/gold.png" alt="gold"
-                    style="width: 100%; height: 400px; padding: 15px; object-fit: contain;">
+                  <img src="images/gold.png" alt="gold" class="carousel-img">
                 </div>
                 <div class="col-6 d-flex flex-column" style="text-align:justify;">
                   <h2>
                     Light Gold
                   </h2>
-                  <p>A warm, luxurious hue that gives the phone a refined and high-end aesthetic.</p>
+                  <p id="text">A warm, luxurious hue that gives the phone a refined and high-end aesthetic.</p>
                 </div>
               </div>
             </div>
@@ -125,14 +181,13 @@
             <div class="carousel-item px-5">
               <div class="row align-items-center px-1">
                 <div class="col-6">
-                  <img src="images/blue.png" alt="blue"
-                    style="width: 100%; height: 400px; padding: 15px; object-fit: contain;">
+                  <img src="images/blue.png" alt="blue" class="carousel-img">
                 </div>
                 <div class="col-6 d-flex flex-column" style="text-align:justify;">
                   <h2>
                     Sky Blue
                   </h2>
-                  <p>A soft, cool-toned blue that feels calm and modern.</p>
+                  <p id="text">A soft, cool-toned blue that feels calm and modern.</p>
                 </div>
               </div>
             </div>
@@ -140,14 +195,13 @@
             <div class="carousel-item px-5">
               <div class="row align-items-center px-1">
                 <div class="col-6">
-                  <img src="images/black.png" alt="black"
-                    style="width: 100%; height: 400px; padding: 15px; object-fit: contain;">
+                  <img src="images/black.png" alt="black" class="carousel-img">
                 </div>
                 <div class="col-6 d-flex flex-column" style="text-align:justify;">
                   <h2>
                     Space Black
                   </h2>
-                  <p>A timeless, classic shade that gives the phone a sleek and professional look.</p>
+                  <p id="text">A timeless, classic shade that gives the phone a sleek and professional look.</p>
                 </div>
               </div>
             </div>
@@ -163,11 +217,10 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
+
         </div>
       </div>
     </div>
-
-
   </section>
 
   <!-- Specifications Section -->
