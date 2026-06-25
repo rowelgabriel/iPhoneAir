@@ -14,7 +14,7 @@
 <body>
   <nav id="navbar" class="navbar navbar-expand-lg shadow fixed-top px-sm-3 px-1 py-2">
     <div class="container-fluid">
-      <div class="navbar-brand">
+      <div class="navbar-brand fw-bold">
         <i class="bi bi-apple fs-3 me-2"></i>iPhone Air
       </div>
       <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -24,17 +24,17 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item px-lg-3">
-            <a class="nav-link fw-semibold" href="#overview">
+            <a class="nav-link text-dark fw-semibold" href="#overview">
               <i class="bi bi-info-circle-fill me-2"></i>Overview
             </a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link fw-semibold" href="#specifications">
+            <a class="nav-link text-dark fw-semibold" href="#specifications">
               <i class="bi bi-gear-fill me-2"></i>Specifications
             </a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link fw-semibold" href="#accessories">
+            <a class="nav-link text-dark fw-semibold" href="#accessories">
               <i class="bi bi-box-seam-fill me-2"></i></i>Accessories
             </a>
           </li>
@@ -51,7 +51,7 @@
             shadow-intensity="1" style="width: 100%; height: 430px; background: transparent;">
           </model-viewer>
         </div>
-        <div class="col-lg-6 px-3">
+        <div class="col-lg-6 px-lg-0 px-5">
           <p class="fs-5 text-muted" style="text-align:justify;">
             The iPhone Air is designed to redefine portability and performance in a single device.
             Its ultra-light frame makes it incredibly comfortable to hold, while still delivering
@@ -71,21 +71,33 @@
   </section>
 
   <section id="specifications" class="py-5">
-    <div class="container mt-4">
+    <div class="container mt-5 mb-3">
       <div class="row">
         <div class="col">
-
+          <div class="h3 text-center fw-bold">
+            <i class="bi bi-gear-fill me-2"></i>Specifications
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row" id="specs-row">
       </div>
     </div>
   </section>
 
   <section id="accessories" class="py-5">
-    <div class="container mt-4">
+    <div class="container mt-5 mb-3">
       <div class="row">
         <div class="col">
-
+          <div class="h3 text-center fw-bold">
+            <i class="bi bi-box-seam-fill me-2"></i></i>Accessories
+          </div>
         </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row g-4" id="accessories-row">
       </div>
     </div>
   </section>
@@ -93,6 +105,9 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
+
+  <script src="data.js"></script>
+  <script src="populate.js"></script>
 </body>
 
 </html>
